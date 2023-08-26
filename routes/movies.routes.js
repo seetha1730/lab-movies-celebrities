@@ -2,9 +2,9 @@
 const router = require("express").Router();
 
 
-/* GET home page */
+/* GET movie page */
 router.get("/movies", (req, res, next) => {
-    res.render("movies");
+    res.render("movies/movies");
   });
 
 // all your routes here
