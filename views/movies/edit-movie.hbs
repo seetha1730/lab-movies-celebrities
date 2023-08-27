@@ -1,0 +1,48 @@
+<header>
+    <div class="container">
+        <a class="btn btn-primary" href="/">Home</a>
+        <a class="btn btn-primary" href="/movies">Back</a>
+    </div>
+</header>
+
+<div class="container">
+    <h2>Edit Movies details</h2>
+    <div class="col-lg-4 col-md-4">
+        {{#with movie}}
+        
+        <form action="/movies" method="POST">
+            <div class="form-group">
+               
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{title}}" required>
+
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}" required>
+
+            </div>
+
+            <div class="form-group">
+                <label for="plot">plot</label>
+                <input type="text" class="form-control" id="plot" name="plot" value="{{plot
+                }}" required>
+
+            </div>
+           <div class="form-group">
+                <label for="cast">cast</label>
+                <select  class="form-control" id="cast" name="cast" multiple>
+                {{#each cast}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+                  </select>
+            
+            </div>
+            <form action="/movies/movie-details" method="post">
+            <button type="submit" class="btn btn-dark">Update movie</button>
+            </form>
+
+        </form>
+        {{/with}}
+    </div>
+</div>

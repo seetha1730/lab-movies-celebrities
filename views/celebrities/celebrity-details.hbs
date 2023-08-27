@@ -1,0 +1,25 @@
+<header>
+    <div class="container">
+        
+        
+    </div>
+</header>
+<div class="container">
+     <a class="btn btn-danger" href="/celebrities/create">Create New Movies</a>
+    <h2>{{celebrity.title}}Movie details</h2>
+<h2>Movie Details</h2>
+    {{#with celebrity}}
+    <h2>Name: {{name}}</h2>
+<h2>Occupation: {{occupation}}</h2>
+<h2>Catch Phrase: {{catchPhrase}}</h2>
+
+   {{/with}}
+  <form action="/movies/{{celebrity._id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger" >Delete</button>
+   </form>
+
+<a href="/celebrities/{{celebrity._id}}/edit">Edit celebrity</a>
+</div>
+
+
+
