@@ -1,28 +1,37 @@
 <header>
     <div class="container">
-        
+         <a class="btn btn-primary mr-2 " href="/">Home</a>
+        <a class="btn btn-primary  mr-4" href="/movies">Back</a>
+
+         <a class="btn btn-dark  mr-2" href="/movies/create">Create New Movies</a>
+    
+    {{!-- <a class="btn btn-dark mr-2" href="/celebrities/create">Create New celebrity</a> --}}
         
     </div>
 </header>
 <div class="container">
-     <a class="btn btn-danger" href="/movies/create">Create New Movies</a>
-    <h2>{{movie.title}}Movie details</h2>
-<h2>Movie Details</h2>
-    {{#with movie}}
-    <h2>Title: {{title}}</h2>
-<h2>Genre: {{genre}}</h2>
-<h2>Plot: {{plot}}</h2>
-   
- {{#each cast}}
-    <h2>Cast: {{this.name}}</h2>
-{{/each}}
+    
+    <h1 class="mt-4"> <span>Movie details:</span>{{movie.title}}</h1>
 
+    {{#with movie}}
+    <h2><span>Title:</span> {{title}}</h2>
+<h2><span>Genre:</span> {{genre}}</h2>
+<h2><span>Plot: </span>{{plot}}</h2>
+<h2><span>Cast:</span> </h2>
+<ul>
+    
+ {{#each cast}}
+    <li>{{this.name}}</li>
+{{/each}}
+</ul>
    {{/with}}
+   <div class="delete-edit-btn mt-4">
   <form action="/movies/{{movie._id}}/delete" method="post">
-    <button type="submit" class="btn btn-danger" >Delete</button>
+    <button type="submit" class="btn btn-danger  mr-2" >Delete</button>
    </form>
 
-<a href="/movies/{{movie._id}}/edit">Edit Movie</a>
+<a href="/movies/{{movie._id}}/edit" class="btn btn-warning" >Edit Movie</a>
+</div>
 </div>
 
 

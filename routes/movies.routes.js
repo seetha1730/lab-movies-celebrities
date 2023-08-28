@@ -63,10 +63,30 @@ router.get('/movies/:id/edit', (req,res) => {
     Movie.findById(id)
     .populate("cast")
     .then((movie) => {
-       res.render("movies/edit-movie",{movie});
-    })
+      console.log(movie)
+        Celebrity.find().then((allcelebrities) => {
+       
+          console.log(allcelebrities)
+          res.render("movies/edit-movie",{ movie:movie, allCelebrities: allcelebrities})
+   
+          })
+        
+        })
+       
+    
       
-
+  });
+  router.post('/movies/:id/edit', (req,res) => {
+    const {id} = req.params;
+    const{title,genre,plot,cast} = req.body
+    console.log(req.body)
+      Movie.findByIdAndUpdate(id,{title,genre,plot,cast})
+     
+      .then((movie) => {
+         res.redirect(`/movies/${id}`);
+      })
+        
+    });
   // Movie.findById(id)
   //   .populate("cast")
   //   .then((movie) => {
@@ -79,7 +99,7 @@ router.get('/movies/:id/edit', (req,res) => {
   //  .catch((err) => {console.log(err)});
 
   
-});
+
 
 router.post('/movies/:id', (req,res) => {
   const {id} = req.params;

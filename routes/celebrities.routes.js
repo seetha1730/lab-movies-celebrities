@@ -28,16 +28,41 @@ router.get("/celebrities", (req, res, next) => {
     })
     
   });
-
+ // The celebrities Details Page
   router.get('/celebrities/:id', (req,res) => {
     const celebrityId = req.params.id;
   
-    Movie.findById(celebrityId).then(movie =>{
+    Celebrity.findById(celebrityId).then(celebrity =>{
   
-      res.render("celebrities/celebrity-details",{celebrityId});
+      res.render("celebrities/celebrity-details",{celebrity});
   })
   });
+  //The Deleting celebrities Page
+  router.post('/celebrities/:id/delete', (req,res) => {
+    const {id} = req.params;
+    Celebrity.findByIdAndRemove(id).then(celebrity =>{
+     res.redirect("/celebrities");
+  }) .catch((err) => {console.log(err)});
+  });
+  //Editing celebrities
 
+router.get('/celebrities/:id/edit', (req,res) => {
+  const {id} = req.params;
+  Celebrity.findById(id)
+    .then((celebrity) => {
+       res.render("celebrities/edit-celebrity",{celebrity});
+    })
+      
+  });
+
+  router.post('/celebrities/:id/edit', (req,res) => {
+    const {id} = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+   Celebrity.findByIdAndUpdate(id,{name, occupation, catchPhrase}).then((celebrity)=>{
+    res.render("celebrities/celebrity-details",{celebrity})
+   })
+        
+    });
 // all your routes here
 
 module.exports = router;

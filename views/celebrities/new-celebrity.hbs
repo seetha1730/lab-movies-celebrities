@@ -1,7 +1,11 @@
 <header>
     <div class="container">
-        <a class="btn btn-primary" href="/">Home</a>
-        <a class="btn btn-primary" href="/celebrities">Back</a>
+        <a class="btn btn-primary mr-2 " href="/">Home</a>
+        <a class="btn btn-primary  mr-4" href="/celebrities">Back</a>
+
+    <a class="btn btn-dark mr-2" href="/celebrities/create">Create New celebrity</a> 
+
+    
     </div>
 </header>
 
@@ -10,7 +14,7 @@
     <div class="col-lg-4 col-md-4">
         <form action="/celebrities/create" method="POST">
             <div class="form-group">
-                <label for="exampleInputEmail1">Name</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
 
             </div>

@@ -5,6 +5,17 @@ body {
 a {
   color: #00b7ff;
 }
+h3{
+text-decoration: underline;
+}
+h1 {
+  color: #803c3c;
+}
+li {
+  color: #b23c3c;
+}
+.delete-edit-btn{display:flex;flex-direction: row;}
+h2 span{color: #00b7ff;}
 header{background: pink;
 padding: 40px;
 margin-bottom: 30px;}

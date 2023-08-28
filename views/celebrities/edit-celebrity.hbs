@@ -1,0 +1,41 @@
+<header>
+    <div class="container">
+        <a class="btn btn-primary mr-2" href="/">Home</a>
+        <a class="btn btn-primary mr-4" href="/celebrities">Back</a>
+    <a class="btn btn-dark mr-2" href="/celebrities/create">Create New celebrity</a>
+
+ </div>
+</header>
+
+<div class="container">
+    <h2>Edit Movies details</h2>
+    <div class="col-lg-4 col-md-4">
+        {{#with celebrity}}
+        
+        <form action="/celebrities/{{_id}}/edit" method="POST">
+           <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value ="{{name}}"required>
+
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}" required>
+
+            </div>
+
+            <div class="form-group">
+                <label for="catchPhrase">Catch Phrase:</label>
+                <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}" >
+
+            </div>
+    
+
+            
+            <button type="submit" class="btn btn-success">Update celebrity</button>
+
+
+        </form>
+        {{/with}}
+    </div>
+</div>

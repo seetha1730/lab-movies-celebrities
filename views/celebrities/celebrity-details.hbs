@@ -1,24 +1,28 @@
 <header>
     <div class="container">
-        
+   <a class="btn btn-primary mr-2 " href="/">Home</a>
+        <a class="btn btn-primary  mr-4" href="/celebrities">Back</a>    
+     <a class="btn btn-dark mr-2" href="/celebrities/create">Create New celebrity</a>
+              
         
     </div>
 </header>
 <div class="container">
-     <a class="btn btn-danger" href="/celebrities/create">Create New Movies</a>
-    <h2>{{celebrity.title}}Movie details</h2>
-<h2>Movie Details</h2>
+    <h1 class="mt-4"><span>Celebrity details </span>{{celebrity.name}}</h1>
+
     {{#with celebrity}}
-    <h2>Name: {{name}}</h2>
-<h2>Occupation: {{occupation}}</h2>
-<h2>Catch Phrase: {{catchPhrase}}</h2>
+    <h2><span>Name:</span> {{name}}</h2>
+<h2><span>Occupation:</span> {{occupation}}</h2>
+<h2><span>Catch Phrase:</span> {{catchPhrase}}</h2>
 
    {{/with}}
-  <form action="/movies/{{celebrity._id}}/delete" method="post">
-    <button type="submit" class="btn btn-danger" >Delete</button>
+    <div class="delete-edit-btn mt-4">
+  <form action="/celebrities/{{celebrity._id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger mr-2" >Delete</button>
    </form>
 
-<a href="/celebrities/{{celebrity._id}}/edit">Edit celebrity</a>
+<a href="/celebrities/{{celebrity._id}}/edit" class="btn btn-warning" >Edit celebrity</a>
+</div>
 </div>
 
 

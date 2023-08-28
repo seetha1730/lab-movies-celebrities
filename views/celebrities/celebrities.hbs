@@ -1,16 +1,18 @@
 <header>
     <div class="container">
-        
+            <a class="btn btn-primary mr-2 " href="/">Home</a>
+    
+   <a class="btn btn-dark" href="/celebrities/create">Create New celebrity</a> 
         
     </div>
 </header>
 <div class="container">
-     <a class="btn btn-danger" href="/celebrities/create">Create New Celebrity</a>
-    <h2>Celebrities List</h2>
+    
+    <h3 class="mt-4 mb-4 underline">Celebrities List</h3>
    
 
     {{#each celebrities}}
-    <p>{{name}}</p>
+     <a href="/celebrities/{{id}}"><p>{{name}}</p></a>
     {{/each}}
 
   

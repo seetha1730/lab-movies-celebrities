@@ -1,16 +1,19 @@
 <header>
     <div class="container">
-        
+         <a class="btn btn-primary mr-2 " href="/">Home</a>
+ <a class="btn btn-dark" href="/movies/create">Create New Movies</a>
+    
+    {{!-- <a class="btn btn-dark" href="/celebrities/create">Create New celebrity</a> --}}
         
     </div>
 </header>
 <div class="container">
-     <a class="btn btn-danger" href="/movies/create">Create New Movies</a>
-    <h2>Movies List</h2>
+     
+    <h3 class="mt-4 mb-4 underline">Movies List</h3>
    
 
     {{#each movies}}
-   <a href="/movies/{{id}}" ><p>{{title}}</p></a>
+   <a  href="/movies/{{id}}" ><p>{{title}}</p></a>
     {{/each}}
 
   
